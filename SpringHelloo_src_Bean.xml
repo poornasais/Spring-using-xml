@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="aliens" class="com.spring.Aliens" scope="prototype">
+        <property name="name" value="Poorna"></property>
+        <!--&lt;!&ndash;&lt;!&ndash;<property name="lap" ref="lap"></property>&ndash;&gt; // if we use autowire byname-->
+         <!--then no need of this line and it will connect directly by the name. The name in the Alien set and id name should-->
+          <!--be same. if different then have to use byType&ndash;&gt;-->
+        <!--<property name="lap" ref="lap2"></property>-->
+        <constructor-arg index="1" value="23332"></constructor-arg>
+        <constructor-arg index="0" value="Saie"></constructor-arg>
+        <property name = "computer" ref="lap"/>
+
+    </bean>
+
+
+
+    <bean id="lap" class="com.spring.Laptop" scope="singleton"  >
+        <property name="product" value="Apple"></property>
+        <property name="id" value="1123"></property>
+
+    </bean>
+
+    <bean id = "lap2" class="com.spring.Laptop">
+        <property name = "product" value="HP"></property>
+        <property name = "id" value ="5555"></property>
+    </bean>
+
+</beans>
